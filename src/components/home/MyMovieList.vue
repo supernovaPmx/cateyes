@@ -2,11 +2,12 @@
   <div class="movie-list">
     <ul>
       <my-movie-item
-        v-for="item in movieList"
-        :key="item.movieid"
+        v-for="(item, index) in movieList"
+        :key="index"
         :item="item"
       ></my-movie-item>
     </ul>
+    <p v-if="isToBottom">别拉了！到底了~~~~</p>
   </div>
 </template>
 
@@ -14,7 +15,8 @@
 import MyMovieItem from "com/home/MyMovieItem";
 export default {
   props: {
-    movieList: Array
+    movieList: Array,
+    isToBottom: Boolean
   },
   data() {
     return {};
@@ -28,5 +30,12 @@ export default {
 .movie-list {
   background: #fff;
   margin-top: 10px;
+}
+p {
+  color: red;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
