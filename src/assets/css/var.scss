@@ -1,0 +1,17 @@
+$theme-color: #e54847;
+$active-color: #333;
+$border-color: #e6e6e6;
+
+//文本溢出
+@mixin text-overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+//居中
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
