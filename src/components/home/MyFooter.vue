@@ -1,15 +1,16 @@
 <template>
   <footer>
     <ul>
-      <li
+      <router-link
         v-for="(item, index) in footerList"
         :key="index"
-        :class="{ active: activeIndex === index }"
-        @click="handleClick(index)"
+        :to="item.url"
+        tag="li"
+        active-class="active"
       >
         <span class="iconfont" :class="item.icon"></span>
         <p>{{ item.title }}</p>
-      </li>
+      </router-link>
     </ul>
   </footer>
 </template>
@@ -21,33 +22,31 @@ export default {
       footerList: [
         {
           title: "电影",
-          icon: "icon-dianying"
+          icon: "icon-dianying",
+          url: "/movie"
         },
         {
           title: "视频",
-          icon: "icon-shipin"
+          icon: "icon-shipin",
+          url: "/video"
         },
         {
           title: "小视频",
-          icon: "icon-shipin1"
+          icon: "icon-shipin1",
+          url: "/smallvideo"
         },
         {
           title: "演出",
-          icon: "icon-piaoquan"
+          icon: "icon-piaoquan",
+          url: "/perform"
         },
         {
           title: "我的",
-          icon: "icon-dibudaohanglan-"
+          icon: "icon-dibudaohanglan-",
+          url: "/mine"
         }
-      ],
-      activeIndex: 0
+      ]
     };
-  },
-
-  methods: {
-    handleClick(i) {
-      this.activeIndex = i;
-    }
   }
 };
 </script>
@@ -82,7 +81,7 @@ footer {
         margin-top: 5px;
       }
 
-      .active {
+      &.active {
         color: $theme-color;
       }
     }

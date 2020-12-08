@@ -2,7 +2,8 @@ import Vue from "vue";
 import App from "./App.vue";
 
 //引入了路由和vuex
-// import router from "./router";
+//路径是文件夹结束的 默认找文件夹下面的index文件
+import router from "./router";
 // import store from "./store";
 
 //引入reset.css文件
@@ -18,7 +19,7 @@ Vue.config.productionTip = false;
 
 //将App.vue 挂载到index.html的静态页面上
 new Vue({
-  // router,
+  router,
   // store,
   render: h => h(App)
 }).$mount("#app");

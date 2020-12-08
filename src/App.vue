@@ -1,23 +1,15 @@
 <template>
   <div id="app">
     <!-- 存在底部tab的页面 -->
-    <Home />
+    <!-- 实现home和404的切换 -->
+    <!-- <Home /> -->
     <!-- 没有底部tab的页面 -->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Home from "./views/Home";
-export default {
-  data() {
-    return {
-      msg: "hello"
-    };
-  },
-  components: {
-    Home
-  }
-};
+export default {};
 </script>
 
 <style lang="scss">
