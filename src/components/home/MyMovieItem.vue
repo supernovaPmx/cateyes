@@ -1,5 +1,5 @@
 <template>
-  <li class="movie-item">
+  <li class="movie-item" @click="goToDetail(item.movieid)">
     <img :src="item.img | formatUrl" alt="" />
     <div class="item-right">
       <div class="item-main">
@@ -26,6 +26,12 @@ export default {
   filters: {
     formatUrl(val) {
       return val.split("/w.h").join("");
+    }
+  },
+  methods: {
+    //点击后需要跳转到所需的页面
+    goToDetail(id) {
+      this.$router.push("/detail/" + id);
     }
   }
 };

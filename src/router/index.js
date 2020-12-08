@@ -13,7 +13,7 @@ const routes = [
     path: "/home",
     component: () => import("../views/Home.vue"),
     children: [
-      //底部页面的切换都算是home页面的耳机效果
+      //底部页面的切换都算是home页面的二级效果
       {
         path: "/movie",
         component: () => import("../views/Movie.vue"),
@@ -59,6 +59,11 @@ const routes = [
       }
     ]
   },
+  //详情页 放在第一层
+  {
+    path: "/detail/:movieId",
+    component: () => import("../views/Detail.vue")
+  },
   //实现home页面与404页面的切换所以两个是同一级的，404页面不出现任何效果
   {
     path: "*",
@@ -69,6 +74,11 @@ const routes = [
 const router = new VueRouter({
   routes
 });
+//解决vue-router重复点击的问题
+const originalPush = VueRouter.prototype.push;
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err);
+};
 
 //暴露router
 export default router;

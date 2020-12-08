@@ -19,3 +19,8 @@ export const getMovieListMoreApi = params => {
   //调用http的get方法
   return http.post("movies/more", params);
 };
+//详情页的加载
+export const getMovieDetailApi = params => {
+  //调用http的get方法
+  return http.post("movies/detail", params);
+};

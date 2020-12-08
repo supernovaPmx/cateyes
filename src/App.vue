@@ -4,6 +4,7 @@
     <!-- 实现home和404的切换 -->
     <!-- <Home /> -->
     <!-- 没有底部tab的页面 -->
+    <!-- router-view显示的是第一层的内容 -->
     <router-view></router-view>
   </div>
 </template>
